@@ -1,0 +1,446 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="KOLAPEX NEXUS business management dashboard">
+  <title>KOLAPEX NEXUS | Business Dashboard</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+  <div class="app-layout">
+
+    <aside class="sidebar" id="sidebar">
+      <a href="#" class="brand">
+        <span class="brand-mark">K</span>
+        <span>KOLAPEX <small>NEXUS</small></span>
+      </a>
+
+      <div class="workspace">
+        <div class="workspace-avatar">K</div>
+        <div>
+          <strong>KOLAPEX Studio</strong>
+          <small>Business workspace</small>
+        </div>
+        <i data-lucide="chevron-down"></i>
+      </div>
+
+      <div class="nav-label">WORKSPACE</div>
+
+      <nav class="navigation">
+        <button class="nav-link active" data-page="overview">
+          <i data-lucide="layout-dashboard"></i><span>Overview</span>
+        </button>
+        <button class="nav-link" data-page="analytics">
+          <i data-lucide="chart-no-axes-combined"></i><span>Analytics</span>
+        </button>
+        <button class="nav-link" data-page="transactions">
+          <i data-lucide="arrow-left-right"></i><span>Transactions</span>
+        </button>
+        <button class="nav-link" data-page="customers">
+          <i data-lucide="users"></i><span>Customers</span>
+        </button>
+      </nav>
+
+      <div class="nav-label management-label">MANAGEMENT</div>
+
+      <nav class="navigation">
+        <button class="nav-link" data-page="settings">
+          <i data-lucide="settings"></i><span>Settings</span>
+        </button>
+      </nav>
+
+      <div class="sidebar-bottom">
+        <div class="help-card">
+          <div class="help-icon"><i data-lucide="headset"></i></div>
+          <strong>Need assistance?</strong>
+          <p>We're here to help you manage your workspace.</p>
+          <a href="mailto:support@example.com">Contact support <i data-lucide="arrow-up-right"></i></a>
+        </div>
+
+        <div class="profile">
+          <div class="profile-avatar">K</div>
+          <div class="profile-info">
+            <strong>Workspace Admin</strong>
+            <small>Administrator</small>
+          </div>
+          <i data-lucide="more-horizontal"></i>
+        </div>
+      </div>
+    </aside>
+
+    <main class="main-content">
+
+      <header class="topbar">
+        <div class="topbar-left">
+          <button class="icon-button menu-toggle" id="menuToggle">
+            <i data-lucide="menu"></i>
+          </button>
+          <div class="breadcrumb">Workspace <span>/</span> <strong id="breadcrumb">Overview</strong></div>
+        </div>
+
+        <div class="topbar-right">
+          <div class="date-display">
+            <i data-lucide="calendar-days"></i>
+            <span id="currentDate"></span>
+          </div>
+          <button class="icon-button notification-button" aria-label="Notifications">
+            <i data-lucide="bell"></i>
+            <span></span>
+          </button>
+          <div class="top-avatar">K</div>
+        </div>
+      </header>
+
+      <div class="content-wrapper">
+
+        <!-- OVERVIEW -->
+        <section class="page active" id="overview">
+
+          <div class="page-heading">
+            <div>
+              <p class="eyebrow">BUSINESS OVERVIEW</p>
+              <h1>Good to see you again.</h1>
+              <p class="subtitle">Here's what's happening with your business today.</p>
+            </div>
+            <button class="primary-button" id="addTransactionBtn">
+              <i data-lucide="plus"></i> Add transaction
+            </button>
+          </div>
+
+          <div class="stats-grid">
+
+            <article class="stat-card">
+              <div class="stat-top">
+                <span>Total revenue</span>
+                <span class="stat-icon gold"><i data-lucide="wallet"></i></span>
+              </div>
+              <h2 id="revenueValue">₦8,450,000</h2>
+              <div class="stat-bottom">
+                <span class="positive"><i data-lucide="trending-up"></i> 12.8%</span>
+                <span>vs last period</span>
+              </div>
+            </article>
+
+            <article class="stat-card">
+              <div class="stat-top">
+                <span>Total expenses</span>
+                <span class="stat-icon rose"><i data-lucide="credit-card"></i></span>
+              </div>
+              <h2 id="expenseValue">₦2,180,000</h2>
+              <div class="stat-bottom">
+                <span class="negative"><i data-lucide="trending-up"></i> 4.2%</span>
+                <span>vs last period</span>
+              </div>
+            </article>
+
+            <article class="stat-card">
+              <div class="stat-top">
+                <span>Net profit</span>
+                <span class="stat-icon green"><i data-lucide="chart-no-axes-combined"></i></span>
+              </div>
+              <h2 id="profitValue">₦6,270,000</h2>
+              <div class="stat-bottom">
+                <span class="positive"><i data-lucide="trending-up"></i> 18.6%</span>
+                <span>vs last period</span>
+              </div>
+            </article>
+
+            <article class="stat-card">
+              <div class="stat-top">
+                <span>Total customers</span>
+                <span class="stat-icon blue"><i data-lucide="users"></i></span>
+              </div>
+              <h2 id="customerCount">2,844</h2>
+              <div class="stat-bottom">
+                <span class="positive"><i data-lucide="trending-up"></i> 8.4%</span>
+                <span>vs last period</span>
+              </div>
+            </article>
+
+          </div>
+
+          <div class="dashboard-grid">
+
+            <article class="panel revenue-panel">
+              <div class="panel-heading">
+                <div>
+                  <h3>Revenue overview</h3>
+                  <p>Track your business revenue over time</p>
+                </div>
+                <select id="chartPeriod" class="period-select">
+                  <option value="week">This week</option>
+                  <option value="month" selected>This month</option>
+                  <option value="year">This year</option>
+                </select>
+              </div>
+
+              <div class="chart-total">
+                <h2 id="chartTotal">₦8,450,000</h2>
+                <span class="positive">+12.8%</span>
+              </div>
+
+              <div class="chart-container">
+                <canvas id="revenueChart"></canvas>
+              </div>
+            </article>
+
+            <article class="panel performance-panel">
+              <div class="panel-heading">
+                <div>
+                  <h3>Business performance</h3>
+                  <p>Revenue distribution</p>
+                </div>
+                <button class="icon-button"><i data-lucide="more-horizontal"></i></button>
+              </div>
+
+              <div class="donut-area">
+                <div class="donut-chart">
+                  <div class="donut-center">
+                    <span>Performance</span>
+                    <strong>82%</strong>
+                  </div>
+                </div>
+              </div>
+
+              <div class="legend">
+                <div><span class="legend-dot revenue-dot"></span> Revenue <strong>68%</strong></div>
+                <div><span class="legend-dot expense-dot"></span> Expenses <strong>22%</strong></div>
+                <div><span class="legend-dot profit-dot"></span> Profit <strong>10%</strong></div>
+              </div>
+            </article>
+
+          </div>
+
+          <article class="panel table-panel">
+            <div class="panel-heading">
+              <div>
+                <h3>Recent transactions</h3>
+                <p>Your latest business activities</p>
+              </div>
+              <button class="text-button" data-goto="transactions">View all <i data-lucide="arrow-right"></i></button>
+            </div>
+
+            <div class="table-scroll">
+              <table>
+                <thead>
+                  <tr>
+                    <th>TRANSACTION</th>
+                    <th>DATE</th>
+                    <th>CATEGORY</th>
+                    <th>STATUS</th>
+                    <th>AMOUNT</th>
+                  </tr>
+                </thead>
+                <tbody id="recentTransactions"></tbody>
+              </table>
+            </div>
+          </article>
+
+        </section>
+
+        <!-- ANALYTICS -->
+        <section class="page" id="analytics">
+          <div class="page-heading">
+            <div>
+              <p class="eyebrow">BUSINESS INSIGHTS</p>
+              <h1>Analytics</h1>
+              <p class="subtitle">Understand your business performance.</p>
+            </div>
+          </div>
+
+          <div class="stats-grid">
+            <article class="stat-card">
+              <div class="stat-top"><span>Revenue</span><span class="stat-icon gold"><i data-lucide="wallet"></i></span></div>
+              <h2 id="analyticsRevenue">₦8,450,000</h2>
+              <div class="stat-bottom"><span class="positive">+12.8%</span><span>growth</span></div>
+            </article>
+            <article class="stat-card">
+              <div class="stat-top"><span>Expenses</span><span class="stat-icon rose"><i data-lucide="credit-card"></i></span></div>
+              <h2 id="analyticsExpenses">₦2,180,000</h2>
+              <div class="stat-bottom"><span class="negative">+4.2%</span><span>growth</span></div>
+            </article>
+          </div>
+
+          <article class="panel analytics-panel">
+            <div class="panel-heading">
+              <div><h3>Annual performance</h3><p>Monthly revenue trend</p></div>
+            </div>
+            <div class="chart-container large-chart">
+              <canvas id="analyticsChart"></canvas>
+            </div>
+          </article>
+        </section>
+
+        <!-- TRANSACTIONS -->
+        <section class="page" id="transactions">
+          <div class="page-heading">
+            <div>
+              <p class="eyebrow">FINANCIAL ACTIVITY</p>
+              <h1>Transactions</h1>
+              <p class="subtitle">Manage your business income and expenses.</p>
+            </div>
+            <button class="primary-button" id="addTransactionBtn2"><i data-lucide="plus"></i> Add transaction</button>
+          </div>
+
+          <article class="panel table-panel">
+            <div class="panel-heading transaction-toolbar">
+              <div><h3>All transactions</h3><p>Review your recorded activities</p></div>
+              <div class="filters">
+                <input type="search" id="transactionSearch" placeholder="Search transactions...">
+                <select id="typeFilter">
+                  <option value="all">All types</option>
+                  <option value="income">Income</option>
+                  <option value="expense">Expenses</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="table-scroll">
+              <table>
+                <thead>
+                  <tr><th>TRANSACTION</th><th>DATE</th><th>CATEGORY</th><th>TYPE</th><th>AMOUNT</th></tr>
+                </thead>
+                <tbody id="allTransactions"></tbody>
+              </table>
+            </div>
+          </article>
+        </section>
+
+        <!-- CUSTOMERS -->
+        <section class="page" id="customers">
+          <div class="page-heading">
+            <div>
+              <p class="eyebrow">RELATIONSHIP MANAGEMENT</p>
+              <h1>Customers</h1>
+              <p class="subtitle">Keep track of your customer community.</p>
+            </div>
+            <button class="primary-button" id="addCustomerBtn"><i data-lucide="user-plus"></i> Add customer</button>
+          </div>
+
+          <div class="stats-grid">
+            <article class="stat-card">
+              <div class="stat-top"><span>Total customers</span><span class="stat-icon blue"><i data-lucide="users"></i></span></div>
+              <h2 id="customerCount">2,844</h2>
+              <div class="stat-bottom"><span class="positive">Active</span><span>customer base</span></div>
+            </article>
+            <article class="stat-card">
+              <div class="stat-top"><span>Added in this session</span><span class="stat-icon green"><i data-lucide="user-plus"></i></span></div>
+              <h2 id="newCustomerCount">4</h2>
+              <div class="stat-bottom"><span class="positive">Updated</span><span>customer records</span></div>
+            </article>
+          </div>
+
+          <article class="panel table-panel">
+            <div class="panel-heading"><div><h3>Customer directory</h3><p>Customer information</p></div></div>
+            <div class="table-scroll">
+              <table>
+                <thead><tr><th>CUSTOMER</th><th>EMAIL</th><th>JOINED</th><th>STATUS</th></tr></thead>
+                <tbody id="customerTable"></tbody>
+              </table>
+            </div>
+          </article>
+        </section>
+
+        <!-- SETTINGS -->
+        <section class="page" id="settings">
+          <div class="page-heading">
+            <div>
+              <p class="eyebrow">PREFERENCES</p>
+              <h1>Settings</h1>
+              <p class="subtitle">Manage your workspace information.</p>
+            </div>
+          </div>
+
+          <article class="panel settings-panel">
+            <h3>Workspace information</h3>
+            <p>Update your business workspace details.</p>
+            <form id="settingsForm">
+              <label for="businessName">Business name</label>
+              <input id="businessName" type="text" value="KOLAPEX Studio" required>
+              <button class="primary-button" type="submit">Save changes</button>
+            </form>
+          </article>
+        </section>
+
+      </div>
+    </main>
+  </div>
+
+  <!-- TRANSACTION MODAL -->
+  <div class="modal-overlay" id="transactionModal">
+    <div class="modal">
+      <div class="modal-heading">
+        <div><h3>Add transaction</h3><p>Record a business transaction.</p></div>
+        <button class="icon-button" id="closeModal"><i data-lucide="x"></i></button>
+      </div>
+
+      <form id="transactionForm">
+        <label for="transactionName">Transaction name</label>
+        <input id="transactionName" type="text" placeholder="e.g. Website project" required>
+
+        <label for="transactionAmount">Amount (₦)</label>
+        <input id="transactionAmount" type="number" min="1" placeholder="Enter amount" required>
+
+        <label for="transactionType">Transaction type</label>
+        <select id="transactionType" required>
+          <option value="income">Income</option>
+          <option value="expense">Expense</option>
+        </select>
+
+        <label for="transactionCategory">Category</label>
+        <select id="transactionCategory" required>
+          <option value="Services">Services</option>
+          <option value="Sales">Sales</option>
+          <option value="Marketing">Marketing</option>
+          <option value="Operations">Operations</option>
+          <option value="Other">Other</option>
+        </select>
+
+        <label for="transactionDate">Date</label>
+        <input id="transactionDate" type="date" required>
+
+        <div class="modal-actions">
+          <button type="button" class="secondary-button" id="cancelModal">Cancel</button>
+          <button type="submit" class="primary-button">Save transaction</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- CUSTOMER MODAL -->
+  <div class="modal-overlay" id="customerModal">
+    <div class="modal">
+      <div class="modal-heading">
+        <div><h3>Add customer</h3><p>Add a new customer record.</p></div>
+        <button class="icon-button" id="closeCustomerModal"><i data-lucide="x"></i></button>
+      </div>
+
+      <form id="customerForm">
+        <label for="customerName">Full name</label>
+        <input id="customerName" type="text" placeholder="Customer name" required>
+
+        <label for="customerEmail">Email address</label>
+        <input id="customerEmail" type="email" placeholder="customer@example.com" required>
+
+        <div class="modal-actions">
+          <button type="button" class="secondary-button" id="cancelCustomer">Cancel</button>
+          <button type="submit" class="primary-button">Add customer</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="toast" id="toast"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
